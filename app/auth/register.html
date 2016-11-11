@@ -1,0 +1,17 @@
+<div id="Registration form Form">
+  <form #registerForm = "ngForm" (ngSubmit)="registerUser(user)" >
+        Name : <input name="userName" type="text" [(ngModel)] = "user.name" #userName="ngModel" required/>
+               <span [hidden]="userName.valid || userName.pristine" >Name is Required</span>
+        <br>
+        Email : <input name="userEmail"  type="email" [(ngModel)] = "user.email" #userEmail="ngModel" required />
+                <span [hidden]="userEmail.valid || userEmail.pristine" >Email is  invalid</span>
+        <br>
+        DOB : <input name="userDob" type="date" [(ngModel)] = "user.dob" #userDob="ngModel" required />
+              <span [hidden]="userDob.valid || userDob.pristine" >Date of birth is required</span>
+        <br>
+        Password : <input name="userPassword" type="password" [(ngModel)] = "user.password" #userPassword="ngModel" required minlength="6"/>
+                   <span [hidden]="userPassword.valid || userPassword.pristine" >Password is required</span>
+        <br>
+        <input class="btn btn-primary" type="submit" value="Submit" [disabled]="!registerForm.form.valid" />
+  </form>
+</div>
